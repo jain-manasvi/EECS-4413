@@ -2,8 +2,8 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" type="text/css" href="main.css">
-<script src="main.js"></script>
+<link rel="stylesheet" type="text/css" href="/css/main.css">
+<script src="/js/main.js"></script>
 </head>
 
 <body id="htmlmain"></body>
@@ -15,19 +15,24 @@
   <a class="item" href="#signup" onclick="window.location.href = 'signup.html';">Sign Up</a>
   <a class="item" href="#login" onclick="window.location.href = 'logIn.html';">Log In</a>
   <a class="item" href="#cart" onclick="window.location.href = 'cart.html';">Cart</a>
-  <div class="dropdown">
-      <a class="dropbtn">Sort By</a>
-          <i class="fa fa-caret-down"></i>
-    </a>
-        <div class="dropdown-content">
-          <a href="#">Mileage</a>
-          <a href="#">Price: High To Low</a>
-          <a href="#">Price: Low To High</a>
-        </div>
-  </div>
-   <input type="text" placeholder="Search..">
-   
-</div>
+<form id="sortFilterForm">
+    <div>
+        <label for="sort">Sort by:</label>
+        <select name="sort" id="sort">
+            <option value="price_asc">Price: Low to High</option>
+            <option value="price_desc">Price: High to Low</option>
+            <option value="mileage_asc">Mileage: Low to High</option>
+            <option value="mileage_desc">Mileage: High to Low</option>
+        </select>
+    </div>
+    <div>
+        <label for="filterBrand">Filter by brand:</label>
+        <input type="text" id="filterBrand" name="filterBrand">
+    </div>
+    <div>
+        <button type="submit">Apply</button>
+    </div>
+</form>
 
 
 
@@ -43,8 +48,8 @@
 </div>
 
 <div id="costum" class="container tab" style="display:none">
-  <h2>costumization</h2>
-  <p>Fill the things below to costumize</p>
+  <h2>customization</h2>
+  <p>Fill the things below to customization</p>
 </div>
 
 
