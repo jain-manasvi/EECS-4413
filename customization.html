@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src=""></script>
+<link rel="stylesheet" type="text/css" href="main.css">
+    <title>Customize Electric Vehicle</title>
+</head>
+<body>
+
+<h1>Customize Your Electric Vehicle</h1>
+
+<!-- Brand Selection -->
+<label for="brand">Select Brand:</label>
+<select id="brand">
+    <option value="tesla">Tesla</option>
+    <option value="nissan">Nissan</option>
+    <option value="Chevrolet">Chevrolet</option> 
+    <option value="BMW">BMW</option>
+    <option value="Audi">Audi</option>
+    <option value="Mercedes-Benz">Mercedes-Benz</option>
+    <option value="Ford">Ford</option>
+    <option value="Hyundai">Hyundai</option>
+        <option value="Kia">Kia</option>
+        <option value="Jaguar">Jaguar</option>
+        <option value="Porsche">Porsche</option>
+        <option value="Rivian">Rivian</option>
+        <option value="Volvo">Volvo</option>
+        <option value="volkswagen">Volkswagen</option> 
+    
+</select>
+
+<!-- Shape Selection -->
+<label for="shape">Select Shape:</label>
+<select id="shape">
+    <option value="sedan">Sedan</option>
+    <option value="suv">SUV</option>
+    <option value="cuv">CUV</option>
+    <option value="hatchback">Hatchback</option>
+    <option value="coupe">Coupe</option>
+   
+    
+</select>
+
+<!-- Model Year Selection -->
+<label for="year">Select Model Year:</label>
+<select id="year">
+
+</select>
+
+<!-- Vehicle History Selection -->
+<label for="history">Select Vehicle History:</label>
+<select id="history">
+    <option value="withHistory">With History</option>
+    <option value="withoutHistory">Without History</option>
+</select>
+
+<!-- Display Customization Result -->
+<div id="customizationResult">
+    <!-- Display the customization result here -->
+</div>
+
+<!-- Add your JavaScript logic here -->
+<script>
+    // You can use JavaScript to handle user interactions and update the customization result.
+    // For simplicity, this example uses static data. In a real application, you would fetch data from a server.
+
+    // Dummy data for model years
+    const modelYears = Array.from({ length: 10 }, (_, i) => 2022 - i);
+
+    // Populate the model year dropdown
+    const yearDropdown = document.getElementById('year');
+    modelYears.forEach(year => {
+        const option = document.createElement('option');
+        option.value = year;
+        option.textContent = year;
+        yearDropdown.appendChild(option);
+    });
+
+    function updateCustomizationResult() {
+        const resultText =
+            "Customization Result: Brand: " + document.getElementById('brand').value +
+            ", Shape: " + document.getElementById('shape').value +
+            ", Year: " + document.getElementById('year').value +
+            ", History: " + document.getElementById('history').value;
+
+        document.getElementById('customizationResult').innerText = resultText;
+    }
+
+    // Event listeners for dropdown changes
+    document.getElementById('brand').addEventListener('change', updateCustomizationResult);
+    document.getElementById('shape').addEventListener('change', updateCustomizationResult);
+    document.getElementById('year').addEventListener('change', updateCustomizationResult);
+    document.getElementById('history').addEventListener('change', updateCustomizationResult);
+
+    // Initial update
+    updateCustomizationResult();
+</script>
+
+</body>
+</html>

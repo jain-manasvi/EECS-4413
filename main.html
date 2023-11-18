@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="main.css">
+<script src="main.js"></script>
+</head>
+
+<body id="htmlmain"></body>
+<div class="topnav">
+
+  <a class="active" class="active" href="#deals" onclick="openTab('home')">Home</a>
+  <a class="item" href="#calculator" onclick="window.location.href = 'calculator.html';">Loan Calculator</a>
+  <a class="item" href="#customization" onclick="window.location.href = 'customization.html';">Customization</a>
+  <a class="item" href="#signup" onclick="window.location.href = 'signup.html';">Sign Up</a>
+  <a class="item" href="#login" onclick="window.location.href = 'logIn.html';">Log In</a>
+  <a class="item" href="#cart" onclick="window.location.href = 'cart.html';">Cart</a>
+  <div class="dropdown">
+      <a class="dropbtn">Sort By</a>
+          <i class="fa fa-caret-down"></i>
+    </a>
+        <div class="dropdown-content">
+          <a href="#">Mileage</a>
+          <a href="#">Price: High To Low</a>
+          <a href="#">Price: Low To High</a>
+        </div>
+  </div>
+   <input type="text" placeholder="Search..">
+   
+</div>
+
+
+
+
+<div id="home" class="container tab">
+  <h2>Hot Deals</h2>
+  <p>THese are the Hot deals</p>
+</div>
+
+<div id="calc" class="container tab" style="display:none">
+  <h2>Loan Calculator</h2>
+  <p>Calculate your loan</p> 
+</div>
+
+<div id="costum" class="container tab" style="display:none">
+  <h2>costumization</h2>
+  <p>Fill the things below to costumize</p>
+</div>
+
+
+<div id="sign" class="container tab" style="display:none">
+  <h2>Sign up</h2>
+  <p>Fill the things below to Sign up</p>
+</div>
+
+<div id="log" class="container tab" style="display:none">
+  <h2>Log In</h2>
+  <p>Fill the things below to LogIn</p>
+</div>
+
+
+<div id="cart" class="container tab" style="display:none">
+  <h2>Cart</h2>
+  <p>No items In the cart</p>
+</div>
+
+</body>
+</html>
