@@ -1,0 +1,652 @@
+#htmlmain body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#htmlmain .topnav {
+    overflow: hidden;
+    background-color: #989E8B;
+}
+
+#htmlmain .topnav a {
+    float: left;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+#htmlmain .topnav a:hover {
+    background-color: #a5ab52;
+    color: black;
+}
+
+#htmlmain .topnav a.active {
+    background-color: #4b5320;
+    color: white;
+}
+
+#htmlmain  .topnav input[type=text] {
+    float: right;
+    padding: 6px;
+    margin-top: 8px;
+    margin-right: 16px;
+    border: none;
+    font-size: 17px;
+}
+
+#htmlmain .topnav input[type=text] {
+    border: 1px solid #ccc;
+}
+
+
+#htmlmain .dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+#htmlmain .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+#htmlmain .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+#htmlmain .dropdown-content a:hover {background-color: #ddd;}
+
+#htmlmain .dropdown:hover .dropdown-content {display: block;}
+
+
+
+
+
+
+
+
+/*calculator*/
+
+
+#loancal {
+    width: 345px;
+    height: 420px;
+    background-color:white;
+    color: #fff;
+    padding: 10px;
+    margin: 100px auto;
+}
+
+
+#htmlcalc .input{
+    margin-left: 40px;
+    margin-right: 40px;
+}
+#htmlcalc p{
+    color: rgb(17, 103, 170);
+    font-size: 17px;
+}
+#htmlcalc input{
+    width: 100%;
+    height: 33px;
+}
+
+#htmlcalc h2{
+    text-align: center;
+    color: rgb(6, 111, 139);
+    margin-top: 35px;
+}
+
+#htmlcalc h1 {
+    font-size:30px;
+    text-align: center;
+    color: rgb(9, 95, 172);
+    margin-bottom: 35px;
+}
+
+
+
+
+
+
+
+
+/*Log In*/
+
+#htmllog body {font-family: Arial, Helvetica, sans-serif;}
+#htmllog form {border: 3px solid #f1f1f1;}
+
+#htmllog input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+#htmllog button {
+    background-color: #04AA6D;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+#htmllog button:hover {
+    opacity: 0.8;
+}
+
+#htmllog cancelbtn {
+    width: auto;
+    padding: 10px 18px;
+    background-color: #f44336;
+}
+
+#htmllog .imgcontainer {
+    text-align: center;
+    margin: 24px 0 12px 0;
+}
+
+#htmllog img.avatar {
+    width: 40%;
+    border-radius: 50%;
+}
+
+#htmllog .container {
+    padding: 16px;
+}
+
+#htmllog span.psw {
+    float: right;
+    padding-top: 16px;
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+    #htmllog  span.psw {
+        display: block;
+        float: none;
+    }
+    #htmllog .cancelbtn {
+        width: 100%;
+    }
+}
+
+
+
+
+
+
+
+
+/*Sign Up*/
+
+#htmlsign body {font-family: Arial, Helvetica, sans-serif;}
+#htmlsign * {box-sizing: border-box;}
+
+/* Full-width input fields */
+#htmlsign input[type=text], input[type=password] {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+}
+
+/* Add a background color when the inputs get focus */
+#htmlsign input[type=text]:focus, input[type=password]:focus {
+    background-color: #ddd;
+    outline: none;
+}
+
+/* Set a style for all buttons */
+#htmlsign button {
+    background-color: #04AA6D;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+}
+
+#htmlsign button:hover {
+    opacity:1;
+}
+
+/* Extra styles for the cancel button */
+#htmlsign .cancelbtn {
+    padding: 14px 20px;
+    background-color: #f44336;
+}
+
+/* Float cancel and signup buttons and add an equal width */
+#htmlsign .cancelbtn, .signupbtn {
+    float: left;
+    width: 50%;
+}
+
+/* Add padding to container elements */
+#htmlsign .container {
+    padding: 16px;
+}
+
+/* The Modal (background) */
+#htmlsign .modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: #fefefe;
+    padding-top: 50px;
+}
+
+/* Modal Content/Box */
+#htmlsign .modal-content {
+    background-color: #fefefe;
+    margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+    border: 1px solid #fefefe;
+    width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* Style the horizontal ruler */
+#htmlsign hr {
+    border: 1px solid #f1f1f1;
+    margin-bottom: 25px;
+}
+
+/* The Close Button (x) */
+#htmlsign .close {
+    position: absolute;
+    right: 35px;
+    top: 15px;
+    font-size: 40px;
+    font-weight: bold;
+    color: #f1f1f1;
+}
+
+#htmlsign .close:hover,
+.close:focus {
+    color: #f44336;
+    cursor: pointer;
+}
+
+/* Clear floats */
+#htmlsign .clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+/* Change styles for cancel button and signup button on extra small screens */
+@media screen and (max-width: 300px) {
+    #htmlsign .cancelbtn, .signupbtn {
+        width: 100%;
+    }
+}
+
+
+
+/*cart*/
+
+#htmlcart .incdec {
+    border-radius: 50%;
+}
+
+#htmlcart button {
+
+    background-color: #4b5320;
+
+}
+
+
+
+
+/*reviews*/
+
+#feedback {
+    max-width: 60%;
+    width: 100%;
+    margin: 10px auto;
+    padding: 20px;
+    border: solid 1px #f1f1f1;
+    background: #fbfbfb;
+    box-shadow: #e6e6e6 0 0 4px ;
+    border-radius: 0.25rem;
+}
+
+@media (max-width: 720px) {
+    #feedback{
+        max-width: 90%;
+    }
+}
+
+@media (max-width: 500px) {
+    #feedback{
+        padding: 10px;
+    }
+}
+
+#fh2{
+    padding: 2px 15px;
+    color: #ff4d4d;
+    text-align: center;
+
+
+}
+
+@media (max-width: 400px) {
+    #fh2{
+        font-size: 20px;
+    }
+}
+
+
+#fh6 {
+    padding: 2px 15px;
+    color: #4D0E;
+    text-align: center;
+    font-weight: normal;
+}
+
+@media (max-width: 400px) {
+    #fh6{
+        font-size: 12px;
+    }
+}
+
+.pinfo {
+    margin: 8px auto;
+    font-weight: bold;
+    line-height: 1.5;
+    color: #0d0d0d;
+}
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-control {
+    display: block;
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.25;
+    font-weight: bold;
+    color: #6C6262;
+    background-color: #fff;
+    background-image: none;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 0.25rem;
+    -webkit-transition: border-color ease-in-out 0.15s, -webkit-box-shadow ease-in-out 0.15s;
+    transition: border-color ease-in-out 0.15s, -webkit-box-shadow ease-in-out 0.15s;
+    -o-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+    transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+    transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s, -webkit-box-shadow ease-in-out 0.15s;
+}
+
+.form-control::-ms-expand {
+    background-color: transparent;
+    border: 0;
+}
+
+.form-control:focus {
+    color: #696060;
+    background-color: #fff;
+    border-color: #5cb3fd;
+    outline: none;
+}
+
+.form-control::-webkit-input-placeholder {
+    color: #F34949;
+    opacity: 1;
+}
+
+.form-control::-moz-placeholder {
+    color: brown;
+    opacity: 1;
+}
+
+.form-control:-ms-input-placeholder {
+    color: blue;
+    opacity: 1;
+}
+
+.form-control::placeholder {
+    color: white;
+    opacity: 1;
+}
+
+.form-control:disabled, .form-control[readonly] {
+    background-color: red;
+    opacity: 1;
+}
+
+.form-control:disabled {
+    cursor: not-allowed;
+}
+
+select.form-control:not([size]):not([multiple]) {
+    height: calc(2.25rem + 2px);
+}
+
+select.form-control:focus::-ms-value {
+    color: green;
+    background-color: #fff;
+}
+
+.form-control-file,
+.form-control-range {
+    display: block;
+}
+
+.input-group {
+    position: relative;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+}
+
+.input-group .form-control {
+    position: relative;
+    z-index: 2;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 1 auto;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    width: 1%;
+    margin-bottom: 0;
+}
+
+.input-group .form-control:focus, .input-group .form-control:active, .input-group .form-control:hover {
+    z-index: 3;
+}
+
+.input-group-addon,
+.input-group-btn,
+.input-group .form-control {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+.input-group-addon:not(:first-child):not(:last-child),
+.input-group-btn:not(:first-child):not(:last-child),
+.input-group .form-control:not(:first-child):not(:last-child) {
+    border-radius: 0;
+}
+
+.input-group-addon,
+.input-group-btn {
+    white-space: nowrap;
+    vertical-align: middle;
+}
+
+.input-group-addon {
+    width: 45px;
+    padding: 0.5rem 0.75rem;
+    margin-bottom: 0;
+    font-size: 1rem;
+    font-weight: normal;
+    line-height: 1.25;
+    color: #2e2e2e;
+    text-align: center;
+    background-color: #eceeef;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 0.25rem;
+}
+
+.input-group-addon.form-control-sm,
+.input-group-sm > .input-group-addon,
+.input-group-sm > .input-group-btn > .input-group-addon.btn {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+    border-radius: 0.2rem;
+}
+
+.input-group-addon.form-control-lg,
+.input-group-lg > .input-group-addon,
+.input-group-lg > .input-group-btn > .input-group-addon.btn {
+    padding: 0.75rem 1.5rem;
+    font-size: 1.25rem;
+    border-radius: 0.3rem;
+}
+
+.input-group-addon input[type="radio"],
+.input-group-addon input[type="checkbox"] {
+    margin-top: 0;
+}
+
+.input-group .form-control:not(:last-child),
+.input-group-addon:not(:last-child),
+.input-group-btn:not(:last-child) > .btn,
+.input-group-btn:not(:last-child) > .btn-group > .btn,
+.input-group-btn:not(:last-child) > .dropdown-toggle,
+.input-group-btn:not(:first-child) > .btn:not(:last-child):not(.dropdown-toggle),
+.input-group-btn:not(:first-child) > .btn-group:not(:last-child) > .btn {
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.input-group-addon:not(:last-child) {
+    border-right: 0;
+}
+
+.input-group .form-control:not(:first-child),
+.input-group-addon:not(:first-child),
+.input-group-btn:not(:first-child) > .btn,
+.input-group-btn:not(:first-child) > .btn-group > .btn,
+.input-group-btn:not(:first-child) > .dropdown-toggle,
+.input-group-btn:not(:last-child) > .btn:not(:first-child),
+.input-group-btn:not(:last-child) > .btn-group:not(:first-child) > .btn {
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+}
+
+.form-control + .input-group-addon:not(:first-child) {
+    border-left: 0;
+}
+
+.btn {
+    display: inline-block;
+    font-weight: normal;
+    line-height: 1.25;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    border-radius: 0.25rem;
+    -webkit-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+}
+
+.btn:focus, .btn:hover {
+    text-decoration: none;
+}
+
+.btn:focus, .btn.focus {
+    outline: 0;
+    -webkit-box-shadow: 0 0 0 2px rgba(2, 117, 216, 0.25);
+    box-shadow: 0 0 0 2px rgba(2, 117, 216, 0.25);
+}
+
+.btn.disabled, .btn:disabled {
+    cursor: not-allowed;
+    opacity: .65;
+}
+
+.btn:active, .btn.active {
+    background-image: none;
+}
+
+a.btn.disabled,
+fieldset[disabled] a.btn {
+    pointer-events: none;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #0275d8;
+    border-color: #0275d8;
+}
+
+.btn-primary:hover {
+    color: #fff;
+    background-color: #025aa5;
+    border-color: #01549b;
+}
+
+.btn-primary:focus, .btn-primary.focus {
+    -webkit-box-shadow: 0 0 0 2px rgba(2, 117, 216, 0.5);
+    box-shadow: 0 0 0 2px rgba(2, 117, 216, 0.5);
+}
+
+.btn-primary.disabled, .btn-primary:disabled {
+    background-color: #0275d8;
+    border-color: #0275d8;
+}
+
+.btn-primary:active, .btn-primary.active,
+.show > .btn-primary.dropdown-toggle {
+    color: #fff;
+    background-color: #025aa5;
+    background-image: none;
+    border-color: #01549b;
+}
