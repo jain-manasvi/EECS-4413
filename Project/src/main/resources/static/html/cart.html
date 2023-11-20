@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="../css/main.css">
+</head>
+<body id="htmlcart">
+<form name="ShoppingList">
+    <fieldset>
+        <legend>Shopping cart</legend>
+        <label>Item: <input type="text" name="name"></label>
+        <label>Quantity: <input type="text" name="data"></label>
+        <div id="btns">
+            <button type="button"  onclick="SaveItem()">Go To Check Out</button>
+            <button class="incdec" type="button"  onclick="inc()">+</button>
+            <button class="incdec" type="button"  onclick="dec()">-</button>
+            <button type="button"  href="#customization" onclick="window.location.href = 'customization.html';">Customize</button>
+        </div>
+    </fieldset>
+    <div id="items_table">
+        <label><button type="button" value="Clear" onclick="ClearAll()">Clear</button>
+        </label>
+    </div>
+</form>
+<script src="../js/cart.js"></script>
+</body>
