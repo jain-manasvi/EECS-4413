@@ -1,7 +1,9 @@
 function submit(){
     let uname = document.getElementsByName("uname")[0].value;
     let psw = document.getElementsByName("psw")[0].value;
-    let body = {"email": uname}
+    // console.log(uname, psw)
+    let body = {"email": uname, "password": psw }
+    // console.log(body)
     fetch("/sign-in", {
         method: "POST",
         headers: {"Content-Type": "application/json"},
@@ -24,7 +26,8 @@ function submit(){
 }
 
 function verifyPsw(data, psw){
-    if(data == psw){
+    if(data.password == psw){
+        alert("User logged in successfully")
         return "User logged in";
     }
     else{

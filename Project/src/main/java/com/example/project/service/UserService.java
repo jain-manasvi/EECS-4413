@@ -31,10 +31,22 @@ public class UserService {
 
     public User findUserByEmail(String email) {
         User user = userRepository.findByEmail(email);
+        System.out.println(user.toString());
         if(user == null){
             return null;
         }
         return user;
+    }
+
+    public User loginUser(String email, String password){
+        User user = userRepository.findByEmail(email);
+
+        if(user != null && user.getPassword().equals(password)){
+            return user;
+        }
+        else{
+            return null;
+        }
     }
 
     public User registerNewUser(String fName, String lName, String email, String password) {
