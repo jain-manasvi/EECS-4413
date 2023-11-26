@@ -34,9 +34,16 @@ public class UserController {
     }
 
 //    @GetMapping("/{email}")
+//    @PostMapping("/sign-in")
+//    public ResponseEntity<User> getUserByEmail(@RequestBody String email, @RequestBody String password) {
+//        User user = userService.loginUser(email, password);
+//        System.out.println(user.toString());
+//        return user != null ? ResponseEntity.ok(user) : null;
+//    }
+
     @PostMapping("/sign-in")
-    public ResponseEntity<User> getUserByEmail(@RequestBody String email) {
-        User user = userService.findUserByEmail(email);
+    public ResponseEntity<User> loginUserByEmail(@RequestBody User userReq){
+        User user = userService.loginUser(userReq.getEmail(), userReq.getPassword());
         System.out.println(user.toString());
         return user != null ? ResponseEntity.ok(user) : null;
     }
