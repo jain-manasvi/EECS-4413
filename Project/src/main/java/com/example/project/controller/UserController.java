@@ -34,13 +34,6 @@ public class UserController {
         return new ResponseEntity<>(savedUser, HttpStatus.CREATED);
     }
 
-//    @GetMapping("/{email}")
-//    @PostMapping("/sign-in")
-//    public ResponseEntity<User> getUserByEmail(@RequestBody String email, @RequestBody String password) {
-//        User user = userService.loginUser(email, password);
-//        System.out.println(user.toString());
-//        return user != null ? ResponseEntity.ok(user) : null;
-//    }
     @PostMapping("/sign-in")
     public ResponseEntity<User> loginUserByEmail(@RequestBody User userReq, HttpSession session){
         User user = userService.loginUser(userReq.getEmail(), userReq.getPassword());
