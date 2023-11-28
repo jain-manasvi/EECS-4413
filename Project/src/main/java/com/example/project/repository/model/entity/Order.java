@@ -4,6 +4,9 @@ import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.List;
+import java.util.UUID;
+
 @Document
 public class Order {
     @Id
@@ -14,16 +17,18 @@ public class Order {
     private double orderTotal;
     private Shipment shipment;
     private Payment payment;
-    private User user;
+    private String userId;
+    private List<Product> productItems;
 
-    public Order(double totalAmount, Address shippingAddress, ShoppingCart cart, double orderTotal, Shipment shipment, Payment payment, User user) {
+    public Order(double totalAmount, Address shippingAddress, ShoppingCart cart, double orderTotal, Shipment shipment, Payment payment, String userId) {
         this.totalAmount = totalAmount;
         this.shippingAddress = shippingAddress;
         this.cart = cart;
         this.orderTotal = orderTotal;
         this.shipment = shipment;
         this.payment = payment;
-        this.user = user;
+        this.userId = userId;
+        this.id = UUID.randomUUID().toString();
     }
 
     public String getId() {
@@ -46,4 +51,11 @@ public class Order {
         this.orderTotal = orderTotal;
     }
 
+    public List<Product> getProductItems() {
+        return productItems;
+    }
+
+    public void setProductItems(List<Product> productItems) {
+        this.productItems = productItems;
+    }
 }

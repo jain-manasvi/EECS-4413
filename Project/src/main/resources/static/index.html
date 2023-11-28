@@ -1,70 +1,70 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" type="text/css" href="./css/main.css">
-  <script src="./js/main.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="./css/main.css">
+    <script src="./js/main.js"></script>
 </head>
 
 <body id="htmlmain">
 <div class="topnav">
-  <a href="index.html" onclick="openTab('home'); return false;">Home</a>
-  <a href="./html/calculator.html">Loan Calculator</a>
-  <a href="./html/customization.html">Customization</a>
-  <a href="./html/signUp.html">Sign Up</a>
-  <a href="./html/logIn.html">Log In</a>
-  <a href="./html/cart.html">Cart</a>
+    <a href="index.html" onclick="openTab('home'); return false;">Home</a>
+    <a href="./html/calculator.html">Loan Calculator</a>
+    <a href="./html/customization.html">Customization</a>
+    <a href="./html/signUp.html">Sign Up</a>
+    <a href="./html/logIn.html">Log In</a>
+    <a href="./html/cart.html">Cart</a>
 </div>
 
 <!-- Sort/Filter Form -->
 <form id="sortFilterForm">
-  <label for="sort">Sort by:</label>
-  <select name="sort" id="sort" onchange="sortForm()">
-    <option value="price_asc" selected="selected">Price: Low to High</option>
-    <option value="price_desc">Price: High to Low</option>
-    <option value="mileage_asc">Mileage: Low to High</option>
-    <option value="mileage_desc">Mileage: High to Low</option>
-  </select>
+    <label for="sort">Sort by:</label>
+    <select name="sort" id="sort" onchange="sortForm()">
+        <option value="price_asc" selected="selected">Price: Low to High</option>
+        <option value="price_desc">Price: High to Low</option>
+        <option value="mileage_asc">Mileage: Low to High</option>
+        <option value="mileage_desc">Mileage: High to Low</option>
+    </select>
 
-  <label for="filterBrand">Filter by brand:</label>
-  <input type="text" id="filterBrand" name="filterBrand">
+    <label for="filterBrand">Filter by brand:</label>
+    <input type="text" id="filterBrand" name="filterBrand">
 
-  <button type="submit">Apply</button>
+    <button type="submit">Apply</button>
 </form>
 
 <!-- Tab Content -->
 <div id="home" class="container tab">
-  <h2>Hot Deals</h2>
-  <p>These are the Hot deals</p>
+    <h2>Hot Deals</h2>
+    <p>These are the Hot deals</p>
 </div>
 
 <div id="calc" class="container tab" style="display:none">
-  <h2>Loan Calculator</h2>
-  <p>Calculate your loan</p>
+    <h2>Loan Calculator</h2>
+    <p>Calculate your loan</p>
 </div>
 
 <div id="custom" class="container tab" style="display:none">
-  <h2>Customization</h2>
-  <p>Fill the things below to customize</p>
+    <h2>Customization</h2>
+    <p>Fill the things below to customize</p>
 </div>
 
 <div id="sign" class="container tab" style="display:none">
-  <h2>Sign up</h2>
-  <p>Fill the things below to Sign up</p>
+    <h2>Sign up</h2>
+    <p>Fill the things below to Sign up</p>
 </div>
 
 <div id="log" class="container tab" style="display:none">
-  <h2>Log In</h2>
-  <p>Fill the things below to LogIn</p>
+    <h2>Log In</h2>
+    <p>Fill the things below to LogIn</p>
 </div>
 
 <div id="cart" class="container tab" style="display:none">
-  <h2>Cart</h2>
-  <p>No items In the cart</p>
+    <h2>Cart</h2>
+    <p>No items In the cart</p>
 </div>
 <div id="catalog" class="catalog">
-  <h2>Catalog</h2>
-  <div id="product-list"></div>
+    <h2>Catalog</h2>
+    <div id="product-list"></div>
 </div>
 </body>
 </html>

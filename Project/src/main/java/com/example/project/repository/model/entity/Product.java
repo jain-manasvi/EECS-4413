@@ -8,6 +8,7 @@ import org.springframework.data.mongodb.core.mapping.DocumentReference;
 import java.util.List;
 import java.util.UUID;
 
+//Product class has all the product information
 //Stock of products
 @Document(collection = "products")
 public class Product {
@@ -22,8 +23,9 @@ public class Product {
     @DocumentReference
     private List<Review> reviews;
     private int mileage;
+    private int quantity;
 
-    public Product(String name, String description, double price, String brand, String model, int year, int mileage) {
+    public Product(String name, String description, double price, String brand, String model, int year, int mileage, int quantity) {
         this.name = name;
         this.description = description;
         this.price = price;
@@ -32,6 +34,7 @@ public class Product {
         this.id = UUID.randomUUID().toString();
         this.year = year;
         this.mileage = mileage;
+        this.quantity = quantity;
     }
 
     public String getId() {
@@ -101,4 +104,14 @@ public class Product {
     public void setMileage(int mileage) {
         this.mileage = mileage;
     }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+
 }

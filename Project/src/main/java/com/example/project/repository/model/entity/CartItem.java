@@ -2,11 +2,11 @@ package com.example.project.repository.model.entity;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+//Cart item class that holds all the items that are in the cart
 @Document
 public class CartItem {
-    private Product product;
-    private User user;
-    private Order order;
+    private String productName;
+    private String productId;
     private int qty;
     @Id
     private String Id;
@@ -23,35 +23,23 @@ public class CartItem {
         return Id;
     }
 
-    public double getSubTotal(){
-        return product.getPrice() * qty;
-    }
-
-    public Product getProduct() {
-        return product;
-    }
-
-    public void setProduct(Product product) {
-        this.product = product;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
-    public Order getOrder() {
-        return order;
-    }
-
-    public void setOrder(Order order) {
-        this.order = order;
-    }
-
     public void setId(String id) {
         Id = id;
+    }
+
+    public String getProductName() {
+        return productName;
+    }
+
+    public void setProductName(String productName) {
+        this.productName = productName;
+    }
+
+    public String getProductId() {
+        return productId;
+    }
+
+    public void setProductId(String productId) {
+        this.productId = productId;
     }
 }

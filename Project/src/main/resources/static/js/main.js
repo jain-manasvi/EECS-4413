@@ -120,8 +120,13 @@ document.addEventListener("DOMContentLoaded", function () {
             console.log(car); // To check the whole object
             console.log('Model:', car.model); // To check the value of model specifically
             const dataElement = document.createElement('div');
-            dataElement.innerHTML = `<strong>${car.name}</strong> (${car.year}): $${car.price} mileage: ${car.mileage}`;
+            dataElement.innerHTML = `<strong>${car.name}</strong> (${car.year}): $${car.price} mileage: ${car.mileage}
+<button onclick="addToCart(${car.id})">Add to Cart</button>`;
             carListContainer.appendChild(dataElement);
         })
+    }
+
+    function addToCart(id){
+        fetch()
     }
 

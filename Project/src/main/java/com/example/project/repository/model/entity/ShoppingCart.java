@@ -1,10 +1,10 @@
 package com.example.project.repository.model.entity;
 
-import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.DocumentReference;
 
+import java.util.ArrayList;
 import java.util.List;
 //
 //public class ShoppingCart {
@@ -52,44 +52,44 @@ public class ShoppingCart {
 
     @Id
     private String id;
-
+    private String userId;
     @DocumentReference
-    private List<Product> productList;
+    private List<CartItem> cart;
 
-    public ShoppingCart(List<Product> productList) {
-        this.productList = productList;
-    }
-
-    public double getTotal(){
-        double cartTotal = 0;
-        for (Product item : this.productList){
-            cartTotal = cartTotal + item.getPrice();
-        }
-        return cartTotal;
+    public ShoppingCart(String userId) {
+        this.cart = new ArrayList<>();
+        this.userId = userId;
     }
 
     public boolean isEmpty(){
-        return productList.isEmpty();
+        return cart.isEmpty();
     }
 
     public void removeCartItem(Product product){
-        productList.removeIf(item -> item.getId() == product.getId());
+        cart.removeIf(item -> item.getId() == product.getId());
     }
 
     public void clearCart(){
-        productList.clear();
+        cart.clear();
     }
 
     public int getItemCount(){
-        return productList.size();
+        return cart.size();
     }
 
-    public List<Product> getProductList(){
-        return this.productList;
+    public List<CartItem> getCart(){
+        return this.cart;
     }
 
-    public void setProductList(List<Product> productList){
-        this.productList = productList;
+    public void setCart(List<CartItem> cart){
+        this.cart = cart;
     }
 
+    public void addItem(Product product) {
+        this.cart.add(this.getItemCount(), product);
+    }
+
+    public String getUserId() {
+        return userId;
+    }
 }
