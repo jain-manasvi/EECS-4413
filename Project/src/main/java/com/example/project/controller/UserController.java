@@ -1,6 +1,7 @@
 package com.example.project.controller;
 import com.example.project.repository.model.entity.User;
 import com.example.project.service.UserService;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -21,11 +22,11 @@ public class UserController {
         this.userService = userService;
     }
 
-    @GetMapping
-    public ResponseEntity<List<User>> getAllUsers() {
-        List<User> users = userService.findAllUsers();
-        return ResponseEntity.ok(users);
-    }
+//    @GetMapping
+//    public ResponseEntity<List<User>> getAllUsers() {
+//        List<User> users = userService.findAllUsers();
+//        return ResponseEntity.ok(users);
+//    }
 
     @PostMapping("/register")
     public ResponseEntity<User> createUser(@RequestBody User user) {
@@ -40,10 +41,15 @@ public class UserController {
 //        System.out.println(user.toString());
 //        return user != null ? ResponseEntity.ok(user) : null;
 //    }
-
     @PostMapping("/sign-in")
-    public ResponseEntity<User> loginUserByEmail(@RequestBody User userReq){
+    public ResponseEntity<User> loginUserByEmail(@RequestBody User userReq, HttpSession session){
         User user = userService.loginUser(userReq.getEmail(), userReq.getPassword());
+        if(user != null){
+            session.setAttribute("fName", user.getfName());
+            session.setAttribute("lName", user.getlName());
+            session.setAttribute("email", user.getEmail());
+            session.setAttribute("userId", user.getId());
+        }
         System.out.println(user.toString());
         return user != null ? ResponseEntity.ok(user) : null;
     }
