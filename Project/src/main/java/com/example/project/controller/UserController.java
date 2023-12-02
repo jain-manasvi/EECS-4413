@@ -22,12 +22,6 @@ public class UserController {
         this.userService = userService;
     }
 
-//    @GetMapping
-//    public ResponseEntity<List<User>> getAllUsers() {
-//        List<User> users = userService.findAllUsers();
-//        return ResponseEntity.ok(users);
-//    }
-
     @PostMapping("/register")
     public ResponseEntity<User> createUser(@RequestBody User user) {
         User savedUser = userService.createUser(user);
@@ -43,7 +37,7 @@ public class UserController {
             session.setAttribute("email", user.getEmail());
             session.setAttribute("userId", user.getId());
         }
-        System.out.println(user.toString());
+//        System.out.println(session.getAttribute("userId"));
         return user != null ? ResponseEntity.ok(user) : null;
     }
 //    public ResponseEntity<User> getCurrentUser(){

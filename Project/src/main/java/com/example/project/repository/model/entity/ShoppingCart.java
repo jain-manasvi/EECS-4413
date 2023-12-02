@@ -6,14 +6,7 @@ import org.springframework.data.mongodb.core.mapping.DocumentReference;
 
 import java.util.ArrayList;
 import java.util.List;
-//
-//public class ShoppingCart {
-//    private List<CartItem> cartItemList;
-//
-//    public ShoppingCart(List<CartItem> cartItems) {
-//        this.cartItemList = cartItems;
-//    }
-//
+
 //    public double getTotal(){
 //        double cartTotal = 0;
 //        for (CartItem item : this.cartItemList){
@@ -21,39 +14,14 @@ import java.util.List;
 //        }
 //        return cartTotal;
 //    }
-//
-//    public boolean isEmpty(){
-//        return cartItemList.isEmpty();
-//    }
-//
-//    public void removeCartItem(CartItem cartItem){
-//        cartItemList.removeIf(item -> item.getId() == cartItem.getId());
-//    }
-//
-//    public void clearCart(){
-//        cartItemList.clear();
-//    }
-//
-//    public int getItemCount(){
-//        return cartItemList.size();
-//    }
-//
-//    public List<CartItem> getCartItemList(){
-//        return this.cartItemList;
-//    }
-//
-//    public void setCartItemList(List<CartItem> cartItemList){
-//        this.cartItemList = cartItemList;
-//    }
-//
-//}
+
 @Document
 public class ShoppingCart {
 
     @Id
     private String id;
     private String userId;
-    @DocumentReference
+//    @DocumentReference
     private List<CartItem> cart;
 
     public ShoppingCart(String userId) {
@@ -65,8 +33,8 @@ public class ShoppingCart {
         return cart.isEmpty();
     }
 
-    public void removeCartItem(Product product){
-        cart.removeIf(item -> item.getId() == product.getId());
+    public void removeCartItem(String productId){
+        cart.removeIf(item -> item.getId() == productId);
     }
 
     public void clearCart(){
@@ -85,8 +53,16 @@ public class ShoppingCart {
         this.cart = cart;
     }
 
-    public void addItem(Product product) {
-        this.cart.add(this.getItemCount(), product);
+    public void addItem(String productId, String productName, int qty){
+        for (CartItem item: cart){
+            if(item.getProductId().equals(productId)){
+                item.setQty(item.getQty() + qty);
+                return;
+            }
+        }
+        
+        CartItem item = new CartItem(productName, productId, qty);
+        this.cart.add(item);
     }
 
     public String getUserId() {

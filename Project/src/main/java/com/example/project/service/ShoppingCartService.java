@@ -1,9 +1,11 @@
 package com.example.project.service;
 
+import com.example.project.repository.ShoppingCartRepository;
 import com.example.project.repository.model.entity.Product;
 import com.example.project.repository.model.entity.ShoppingCart;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -12,10 +14,18 @@ import java.util.List;
 import java.util.Map;
 
 //@RequestMapping("/cart")
+@Service
 public class ShoppingCartService {
 
     private final List<ShoppingCart> carts = new ArrayList<>();
 
+/*    //@Autowired
+    public ShoppingCartService(ShoppingCartRepository repository){
+        this.repository = repository;*/
+;
+
+
+//
     public ShoppingCart getCartByUserId(String userId) {
         return carts.stream()
                 .filter(cart -> cart.getUserId().equals(userId))
@@ -27,18 +37,18 @@ public class ShoppingCartService {
                 });
     }
 
-    public void addItem(String userId, Long productId, String productName, int quantity) {
+    public void addItem(String userId, String productId, String productName, int quantity) {
         ShoppingCart cart = getCartByUserId(userId);
         cart.addItem(productId, productName, quantity);
     }
 
-    public void removeItem(String userId, Long productId) {
+    public void removeItem(String userId, String productId) {
         ShoppingCart cart = getCartByUserId(userId);
-        cart.removeItem(productId);
+        cart.removeCartItem(productId);
     }
 
     public void clearCart(String userId) {
         ShoppingCart cart = getCartByUserId(userId);
-        cart.clear();
+        cart.clearCart();
     }
 }

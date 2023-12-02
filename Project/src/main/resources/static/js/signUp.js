@@ -7,6 +7,15 @@ window.onclick = function(event) {
     }
 }
 
+ function openTab(tabName) {
+     var i;
+     var x = document.getElementsByClassName("tab");
+     for (i = 0; i < x.length; i++) {
+         x[i].style.display = "none";
+     }
+     document.getElementById(tabName).style.display = "block";
+ }
+
 function matchPassword(){
     let pw1 = document.getElementsByName("psw")[0].value;
     let pw2 = document.getElementsByName("psw-repeat")[0].value;
