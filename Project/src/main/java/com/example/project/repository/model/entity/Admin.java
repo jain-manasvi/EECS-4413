@@ -1,6 +1,5 @@
 package com.example.project.repository.model.entity;
 
-import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -8,7 +7,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Admin {
 
     @Id
-    private String Id;
+    private String id;
     private String fName;
     private String lName;
     private String email;
@@ -23,7 +22,7 @@ public class Admin {
 
     public String getId() {
 
-        return Id;
+        return id;
 
     }
 

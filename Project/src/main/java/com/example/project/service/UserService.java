@@ -23,6 +23,7 @@ public class UserService {
 
     public User createUser(User user) {
 
+        //if user exists return null
         if (userRepository.findByEmail(user.getEmail()) != null){
             return null;
         }
@@ -38,14 +39,15 @@ public class UserService {
         return user;
     }
 
-    public User loginUser(String email, String password){
+    public User loginUser(String email){
         User user = userRepository.findByEmail(email);
 
-        if(user != null && user.getPassword().equals(password)){
+        if(user != null){
             return user;
         }
         else{
-            return null;
+            User badUser = userRepository.findByEmail("baduser@gmail.com");
+            return badUser;
         }
     }
 

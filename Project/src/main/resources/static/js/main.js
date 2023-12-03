@@ -121,12 +121,37 @@ document.addEventListener("DOMContentLoaded", function () {
             console.log('Model:', car.model); // To check the value of model specifically
             const dataElement = document.createElement('div');
             dataElement.innerHTML = `<strong>${car.name}</strong> (${car.year}): $${car.price} mileage: ${car.mileage}
-<button onclick="addToCart(${car.id})">Add to Cart</button>`;
+        <button onclick="addToCart('${car.id}', '${car.name}', 1)">Add to Cart</button>`;
             carListContainer.appendChild(dataElement);
         })
     }
 
-    function addToCart(id){
-        fetch()
+async function addToCart(id, name, quantity) {
+    let body = {id: id, name: name, quantity: quantity };
+    console.log(body);
+    try {
+        let response = await fetch("/cart/add", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(body)
+        });
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        else{
+            console.log("Hello")
+            let cart = await response.json();
+            console.log(cart);
+        }
+
+        let text = await response.text();
+        console.log(text)
+
+    } catch (error) {
+        console.error('Fetch error:', error);
     }
+}
 
