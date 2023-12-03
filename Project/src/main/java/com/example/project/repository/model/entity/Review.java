@@ -7,7 +7,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document(collection = "Reviews")
 public class Review {
     @Id
-    private ObjectId id;
+    private String id;
 //    @DocumentReference
 //    private String productId;
 //    @DocumentReference

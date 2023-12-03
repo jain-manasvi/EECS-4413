@@ -7,8 +7,8 @@ import org.springframework.data.mongodb.repository.Query;
 import java.util.List;
 
 public interface UserRepository extends MongoRepository <User, String> {
-    @Query("{id:'?0'}")
-    User findItemById(String id);
+    @Query("{Id:'?0'}")
+    User findItemById(String Id);
 
     public long count();
 

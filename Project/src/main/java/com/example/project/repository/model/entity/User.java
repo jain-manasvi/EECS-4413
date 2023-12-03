@@ -1,14 +1,14 @@
 package com.example.project.repository.model.entity;
 
-import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
-import org.springframework.data.mongodb.core.mapping.DocumentReference;
+
+import java.util.UUID;
 
 @Document(collection = "user")
 public class User {
     @Id
-    private ObjectId Id;
+    private String id;
     private String fName;
     private String lName;
     private String email;
@@ -19,10 +19,11 @@ public class User {
         this.lName = lName;
         this.email = email;
         this.password = password;
+        this.id = UUID.randomUUID().toString();
     }
 
-    public ObjectId getId() {
-        return this.Id;
+    public String getId() {
+        return this.id;
     }
 
     public String getfName() {
@@ -58,6 +59,6 @@ public class User {
     }
 
     public String toString() {
-        return "User{Id=" + this.Id + ", fName='" + this.fName + "', lName='" + this.lName + "', email='" + this.email + "', password='" + this.password + "'}";
+        return "User{Id=" + this.id + ", fName='" + this.fName + "', lName='" + this.lName + "', email='" + this.email + "', password='" + this.password + "'}";
     }
 }

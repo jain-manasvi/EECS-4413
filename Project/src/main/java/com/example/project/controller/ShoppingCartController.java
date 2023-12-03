@@ -5,35 +5,46 @@ import com.example.project.repository.model.entity.ShoppingCart;
 import com.example.project.service.ShoppingCartService;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.DeleteMapping;
 
+@RestController
 @RequestMapping("/cart")
 public class ShoppingCartController {
+    private final ShoppingCartService service;
+
     @Autowired
-    private ShoppingCartService service;
+    public ShoppingCartController(ShoppingCartService service) {
+        this.service = service;
+    }
 
     @GetMapping("/")
     public ShoppingCart getCart(HttpSession session){
-        return service.getCart((HttpSession) session.getAttribute("userId"));
+        
+        String userId = (String) session.getAttribute("userId");
+
+        ShoppingCart cart = (ShoppingCart) session.getAttribute("cart");
+        return cart;
     }
 
     @PostMapping("/add")
     public void addToCart(HttpSession session, @RequestBody Product product) {
-        ShoppingCart cart = service.getCart((HttpSession) session.getAttribute("userId"));
-        cart.addItem(product);
+        System.out.println("Printing session attr: " + session.getAttribute("userId"));
+        service.addItem(String.valueOf(session.getAttribute("userId")), product.getId(), product.getName(), product.getQuantity());
+        String userId = (String) session.getAttribute("userId");
+        System.out.println(userId);
+        ShoppingCart cart = service.getCartByUserId(userId);
+
+
     }
 
     @PostMapping("/remove")
     public void removeFromCart(HttpSession session, @RequestBody Product product) {
-        ShoppingCart cart = service.getCart((HttpSession) session.getAttribute("userId"));
-        cart.removeCartItem(product);
+        service.removeItem((String) session.getAttribute("userId"), product.getId());
     }
 
-    @PostMapping("/clear")
+    @DeleteMapping("/clear")
     public void clearCart(HttpSession session) {
-        service.clearCart((HttpSession) session.getAttribute("userId"));
+        service.clearCart(String.valueOf(session.getAttribute("userId")));
     }
 }

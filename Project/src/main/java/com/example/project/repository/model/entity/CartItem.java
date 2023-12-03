@@ -2,6 +2,8 @@ package com.example.project.repository.model.entity;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.UUID;
+
 //Cart item class that holds all the items that are in the cart
 @Document
 public class CartItem {
@@ -9,7 +11,14 @@ public class CartItem {
     private String productId;
     private int qty;
     @Id
-    private String Id;
+    private String id;
+
+    public CartItem(String productName, String productId, int qty) {
+        this.productName = productName;
+        this.productId = productId;
+        this.qty = qty;
+        this.id = UUID.randomUUID().toString();
+    }
 
     public int getQty() {
         return qty;
@@ -20,11 +29,11 @@ public class CartItem {
     }
 
     public String getId() {
-        return Id;
+        return id;
     }
 
     public void setId(String id) {
-        Id = id;
+        this.id = id;
     }
 
     public String getProductName() {
@@ -37,9 +46,5 @@ public class CartItem {
 
     public String getProductId() {
         return productId;
-    }
-
-    public void setProductId(String productId) {
-        this.productId = productId;
     }
 }

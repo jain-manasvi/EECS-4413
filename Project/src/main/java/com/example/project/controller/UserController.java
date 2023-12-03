@@ -1,32 +1,26 @@
 package com.example.project.controller;
+import com.example.project.repository.model.entity.ShoppingCart;
 import com.example.project.repository.model.entity.User;
+import com.example.project.service.ShoppingCartService;
 import com.example.project.service.UserService;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import java.util.List;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
 
 @RestController
 //@RequestMapping("/api/users")
 public class UserController {
 
     private final UserService userService;
+    private final ShoppingCartService cartService;
 
     @Autowired
-    public UserController(UserService userService) {
+    public UserController(UserService userService, ShoppingCartService cartService) {
         this.userService = userService;
+        this.cartService = cartService;
     }
-
-//    @GetMapping
-//    public ResponseEntity<List<User>> getAllUsers() {
-//        List<User> users = userService.findAllUsers();
-//        return ResponseEntity.ok(users);
-//    }
 
     @PostMapping("/register")
     public ResponseEntity<User> createUser(@RequestBody User user) {
@@ -36,15 +30,21 @@ public class UserController {
 
     @PostMapping("/sign-in")
     public ResponseEntity<User> loginUserByEmail(@RequestBody User userReq, HttpSession session){
-        User user = userService.loginUser(userReq.getEmail(), userReq.getPassword());
-        if(user != null){
-            session.setAttribute("fName", user.getfName());
-            session.setAttribute("lName", user.getlName());
-            session.setAttribute("email", user.getEmail());
-            session.setAttribute("userId", user.getId());
+        User user = userService.loginUser(userReq.getEmail());
+        if(!user.getEmail().equals("baduser@gmail.com")){
+            if(user.getPassword().equals(userReq.getPassword())){
+                ShoppingCart cart = this.cartService.getCartByUserId(user.getId());
+                session.setAttribute("cart", cart);
+                session.setAttribute("fName", user.getfName());
+                session.setAttribute("lName", user.getlName());
+                session.setAttribute("email", user.getEmail());
+                session.setAttribute("userId", user.getId());
+                return new ResponseEntity<>(user, HttpStatus.OK);
+            }
         }
-        System.out.println(user.toString());
-        return user != null ? ResponseEntity.ok(user) : null;
+
+//        System.out.println(session.getAttribute("userId"));
+        return new ResponseEntity<>(user, HttpStatus.BAD_REQUEST);
     }
 //    public ResponseEntity<User> getCurrentUser(){
 //        User user = userService.
