@@ -243,6 +243,10 @@ async function removeItem(productID) {
 //         .catch(error => console.error('Error:', error));
 // }
 
+function goToCheckout(){
+    window.location.href = "../html/checkout.html"
+}
+
 function goToCustomization(itemName) {
     window.location.href = `customization.html?item=${itemName}`;
 }

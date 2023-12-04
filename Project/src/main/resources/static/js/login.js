@@ -20,27 +20,20 @@ function submit(){
     })
         .then(response => {
             if (!response.ok) {
-                throw new Error('Network response was not ok');
+                // alert("Incorrect credentials. Please try again")
+                throw new Error('Network response was wrong.');
             }
+            else{
+                alert("User logged in successfully")
+            }
+
             return response.json();
         })
         .then(data => {
-            console.log("Logging data: ", data);
-            let result = verifyPsw(data, psw);
-            console.log(result);
+            // console.log("Logging data: ", data);
         })
         .catch((error) => {
+            alert("Incorrect credentials. Please try again")
             console.error('There has been a problem with your fetch operation:', error);
         });
-}
-
-function verifyPsw(data, psw){
-    if(data.password == psw){
-        alert("User logged in successfully")
-        return "User logged in";
-    }
-    else{
-        alert("Incorrect Password. Please try again.")
-        return "Incorrect password";
-    }
 }

@@ -3,15 +3,16 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="../css/main.css">
+    <title>Cart</title>
     <script src="../js/cart.js"></script>
 </head>
 <div class="topnav">
     <a href="../index.html" onclick="openTab('home'); return false;">Home</a>
-    <a href="./html/calculator.html">Loan Calculator</a>
-    <a href="./html/customization.html">Customization</a>
-    <a href="./html/signUp.html">Sign Up</a>
-    <a href="./html/logIn.html">Log In</a>
-    <a href="./html/cart.html">Cart</a>
+    <a href="./calculator.html">Loan Calculator</a>
+    <a href="./customization.html">Customization</a>
+    <a href="./signUp.html">Sign Up</a>
+    <a href="./logIn.html">Log In</a>
+    <a href="./cart.html">Cart</a>
 </div>
 <body id="htmlcart">
 <form name="ShoppingList">
@@ -28,11 +29,11 @@
 <!--            <button class="incdec" type="button"  onclick="dec()">-</button>-->
 <!--            <button type="button"  href="#customization" onclick="window.location.href = 'customization.html';">Customize</button>-->
 <!--        </div>-->
-        <button type="button"  onclick="SaveItem()">Go To Check Out</button>
+        <button type="button"  onclick="goToCheckout()">Go To Check Out</button>
     </fieldset>
     <div id="clearCart">
 <!--        <label><button type="button" value="Clear" onclick="clearAll()">Clear</button>-->
-        </label>
+<!--        </label>-->
     </div>
 </form>
 </body>
