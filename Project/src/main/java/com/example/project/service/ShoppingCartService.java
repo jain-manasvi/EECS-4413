@@ -1,17 +1,13 @@
 package com.example.project.service;
 
-import com.example.project.repository.model.entity.Product;
 import com.example.project.repository.model.entity.ShoppingCart;
-import jakarta.servlet.http.HttpSession;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 //@RequestMapping("/cart")
+@Service
 public class ShoppingCartService {
 
     private final List<ShoppingCart> carts = new ArrayList<>();
@@ -27,18 +23,27 @@ public class ShoppingCartService {
                 });
     }
 
-    public void addItem(String userId, Long productId, String productName, int quantity) {
+    public ShoppingCart addItem(String userId, String productId, String productName, int quantity) {
         ShoppingCart cart = getCartByUserId(userId);
         cart.addItem(productId, productName, quantity);
+        return cart;
     }
 
-    public void removeItem(String userId, Long productId) {
+    public ShoppingCart removeItem(String userId, String productId) {
         ShoppingCart cart = getCartByUserId(userId);
-        cart.removeItem(productId);
+        cart.removeCartItem(productId);
+        return cart;
     }
 
-    public void clearCart(String userId) {
+    public ShoppingCart clearCart(String userId) {
         ShoppingCart cart = getCartByUserId(userId);
-        cart.clear();
+        cart.clearCart();
+        return cart;
+    }
+
+    public ShoppingCart updateItemQuantity(String userId, String productId, int change) {
+        ShoppingCart cart = getCartByUserId(userId);
+        cart.updateItemQuantity(productId, change);
+        return cart;
     }
 }

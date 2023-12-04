@@ -121,12 +121,59 @@ document.addEventListener("DOMContentLoaded", function () {
             console.log('Model:', car.model); // To check the value of model specifically
             const dataElement = document.createElement('div');
             dataElement.innerHTML = `<strong>${car.name}</strong> (${car.year}): $${car.price} mileage: ${car.mileage}
-<button onclick="addToCart(${car.id})">Add to Cart</button>`;
+        <button onclick="addToCart('${car.id}', '${car.name}', 1)">Add to Cart</button>`;
             carListContainer.appendChild(dataElement);
         })
     }
 
-    function addToCart(id){
-        fetch()
+async function addToCart(id, name, quantity) {
+    let body = {id: id, name: name, quantity: quantity };
+    console.log(body);
+
+    try{
+        let response = await fetch("/cart/add", {
+            method: "PUT",
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(body)
+        })
+        let json = await response.json();
+        console.log(json)
+
     }
+    catch{
+        console.log("Fetch error in put method")
+    }
+
+}
+
+// async function changeQuantity(productId, change) {
+//     try {
+//         const response = await fetch("/cart/update", {
+//             method: "PUT",
+//             headers: {
+//                 'Content-Type': 'application/json',
+//             },
+//             body: JSON.stringify({ productId, change })
+//         });
+//
+//         const data = await response.json();
+//         if (data.cart) {
+//             updateCartDisplay(data.cart);
+//         } else {
+//             await shoppingCart();
+//         }
+//     } catch (error) {
+//         console.error('Error:', error);
+//     }
+// }
+
+// function increaseQuantity(productId) {
+//     changeQuantity(productId, 1); // Increase by 1
+// }
+//
+// function decreaseQuantity(productId) {
+//     changeQuantity(productId, -1); // Decrease by 1
+// }
 

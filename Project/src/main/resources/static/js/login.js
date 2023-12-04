@@ -1,3 +1,12 @@
+function openTab(tabName) {
+    var i;
+    var x = document.getElementsByClassName("tab");
+    for (i = 0; i < x.length; i++) {
+        x[i].style.display = "none";
+    }
+    document.getElementById(tabName).style.display = "block";
+}
+
 function submit(){
     let uname = document.getElementsByName("uname")[0].value;
     let psw = document.getElementsByName("psw")[0].value;

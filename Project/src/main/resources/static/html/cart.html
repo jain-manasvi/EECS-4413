@@ -3,24 +3,37 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="../css/main.css">
+    <script src="../js/cart.js"></script>
 </head>
+<div class="topnav">
+    <a href="../index.html" onclick="openTab('home'); return false;">Home</a>
+    <a href="./html/calculator.html">Loan Calculator</a>
+    <a href="./html/customization.html">Customization</a>
+    <a href="./html/signUp.html">Sign Up</a>
+    <a href="./html/logIn.html">Log In</a>
+    <a href="./html/cart.html">Cart</a>
+</div>
 <body id="htmlcart">
 <form name="ShoppingList">
     <fieldset>
         <legend>Shopping cart</legend>
-        <label>Item: <input type="text" name="name"></label>
-        <label>Quantity: <input type="text" name="data"></label>
-        <div id="btns">
-            <button type="button"  onclick="SaveItem()">Go To Check Out</button>
-            <button class="incdec" type="button"  onclick="inc()">+</button>
-            <button class="incdec" type="button"  onclick="dec()">-</button>
-            <button type="button"  href="#customization" onclick="window.location.href = 'customization.html';">Customize</button>
+        <div id="items-table">
         </div>
+
+<!--        <label>Item: <input type="text" name="name"></label>-->
+<!--        <label>Quantity: <input type="text" name="data"></label>-->
+<!--        <div id="btns">-->
+<!--            -->
+<!--            <button class="incdec" type="button"  onclick="inc()">+</button>-->
+<!--            <button class="incdec" type="button"  onclick="dec()">-</button>-->
+<!--            <button type="button"  href="#customization" onclick="window.location.href = 'customization.html';">Customize</button>-->
+<!--        </div>-->
+        <button type="button"  onclick="SaveItem()">Go To Check Out</button>
     </fieldset>
-    <div id="items_table">
-        <label><button type="button" value="Clear" onclick="ClearAll()">Clear</button>
+    <div id="clearCart">
+<!--        <label><button type="button" value="Clear" onclick="clearAll()">Clear</button>-->
         </label>
     </div>
 </form>
-<script src="../js/cart.js"></script>
 </body>
+</html>
