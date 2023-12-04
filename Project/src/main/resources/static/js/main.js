@@ -7,6 +7,43 @@ function openTab(tabName) {
     document.getElementById(tabName).style.display = "block";
 }
 let value = 0;
+
+// function sortForm() {
+//     let filterValue = document.getElementById('brand').value; // Assuming 'brand' is your filter input field
+//     let sortValue = document.getElementById('sort').value;
+//     fetchFilteredProducts(filterValue, sortValue);
+// }
+//
+// function fetchFilteredProducts(filter, sortValue) {
+//     fetch(`/api/products/getFilteredProducts?brand=${filter}`)
+//         .then(response => {
+//             if (!response.ok) {
+//                 throw new Error(`HTTP error! Status: ${response.status}`);
+//             }
+//             return response.json();
+//         })
+//         .then(data => {
+//             console.log('Filtered Cars:', data);
+//             applySort(data, sortValue);
+//         })
+//         .catch(error => {
+//             console.error('Fetch error:', error);
+//         });
+// }
+//
+// function applySort(data, sortValue) {
+//     if (sortValue === "price_asc") {
+//         data.sort((car1, car2) => car1.price - car2.price);
+//     } else if (sortValue === "price_desc") {
+//         data.sort((car1, car2) => car2.price - car1.price);
+//     } else if (sortValue === "mileage_asc") {
+//         data.sort((car1, car2) => car1.mileage - car2.mileage);
+//     } else if (sortValue === "mileage_desc") {
+//         data.sort((car1, car2) => car2.mileage - car1.mileage);
+//     }
+//     displayCars(data); // Assuming this is your function to display the cars
+// }
+
 function sortForm(){
     let text = document.getElementById('sort').value;
     console.log(text);
@@ -27,7 +64,14 @@ function sortForm(){
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-    fetch("/api/products/getAllProducts").then(response => {
+    // let brandName = document.querySelector("#brand").value;
+    // fetch("/api/products/getFilteredProducts"), {
+    //     method: "POST",
+    //     headers: {
+    //
+    //     }
+    // }
+    fetch("/api/products/getFullPriceProducts").then(response => {
         if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);
         }
@@ -41,10 +85,26 @@ document.addEventListener("DOMContentLoaded", function () {
         .catch(error => {
             console.error('Fetch error:', error);
         });
+
+    fetch("/api/products/getDiscountedProducts").then(response => {
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.json();
+    })
+        .then(data => {
+            console.log('Cars:', data);
+            data = data.sort((car1, car2) => car1.price - car2.price)
+            displayHotDeals(data)
+
+        })
+        .catch(error => {
+            console.error('Fetch error:', error);
+        });
 })
 
     function sortPriceAscending() {
-        fetch("/api/products/getAllProducts").then(response => {
+        fetch("/api/products/getFullPriceProducts").then(response => {
             if (!response.ok) {
                 throw new Error(`HTTP error! Status: ${response.status}`);
             }
@@ -58,10 +118,26 @@ document.addEventListener("DOMContentLoaded", function () {
             .catch(error => {
                 console.error('Fetch error:', error);
             });
+
+        fetch("/api/products/getDiscountedProducts").then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.json();
+        })
+            .then(data => {
+                console.log('Cars:', data);
+                data = data.sort((car1, car2) => car1.price - car2.price)
+                displayHotDeals(data)
+
+            })
+            .catch(error => {
+                console.error('Fetch error:', error);
+            });
     }
 
     function sortPriceDescending() {
-        fetch("/api/products/getAllProducts").then(response => {
+        fetch("/api/products/getFullPriceProducts").then(response => {
             if (!response.ok) {
                 throw new Error(`HTTP error! Status: ${response.status}`);
             }
@@ -76,10 +152,26 @@ document.addEventListener("DOMContentLoaded", function () {
                 console.error('Fetch error:', error);
 
             });
+
+        fetch("/api/products/getDiscountedProducts").then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.json();
+        })
+            .then(data => {
+                console.log('Cars:', data);
+                data = data.sort((car1, car2) => car2.price - car1.price)
+                displayHotDeals(data)
+
+            })
+            .catch(error => {
+                console.error('Fetch error:', error);
+            });
     }
 
     function sortMileageAscending() {
-        fetch("/api/products/getAllProducts").then(response => {
+        fetch("/api/products/getFullPriceProducts").then(response => {
             if (!response.ok) {
                 throw new Error(`HTTP error! Status: ${response.status}`);
             }
@@ -93,10 +185,26 @@ document.addEventListener("DOMContentLoaded", function () {
             .catch(error => {
                 console.error('Fetch error:', error);
             });
+
+        fetch("/api/products/getDiscountedProducts").then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.json();
+        })
+            .then(data => {
+                console.log('Cars:', data);
+                data = data.sort((car1, car2) => car1.mileage - car2.mileage)
+                displayHotDeals(data)
+
+            })
+            .catch(error => {
+                console.error('Fetch error:', error);
+            });
     }
 
     function sortMileageDescending() {
-        fetch("/api/products/getAllProducts").then(response => {
+        fetch("/api/products/getFullPriceProducts").then(response => {
             if (!response.ok) {
                 throw new Error(`HTTP error! Status: ${response.status}`);
             }
@@ -106,6 +214,22 @@ document.addEventListener("DOMContentLoaded", function () {
                 console.log('Cars:', data);
                 data = data.sort((car1, car2) => car2.mileage - car1.mileage)
                 displayCars(data)
+
+            })
+            .catch(error => {
+                console.error('Fetch error:', error);
+            });
+
+        fetch("/api/products/getDiscountedProducts").then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.json();
+        })
+            .then(data => {
+                console.log('Cars:', data);
+                data = data.sort((car1, car2) => car2.mileage - car1.mileage)
+                displayHotDeals(data)
 
             })
             .catch(error => {
@@ -121,37 +245,83 @@ document.addEventListener("DOMContentLoaded", function () {
             console.log('Model:', car.model); // To check the value of model specifically
             const dataElement = document.createElement('div');
             dataElement.innerHTML = `<strong>${car.name}</strong> (${car.year}): $${car.price} mileage: ${car.mileage}
-        <button onclick="addToCart('${car.id}', '${car.name}', 1)">Add to Cart</button>`;
+        <button onclick="addToCart('${car.id}', '${car.name}', 1)">Add to Cart</button>
+<button onclick="goToReviews()">Write Reviews</button>`;
             carListContainer.appendChild(dataElement);
         })
     }
 
+function goToReviews(){
+    window.location.href = "../html/reviews.html"
+}
+
 async function addToCart(id, name, quantity) {
     let body = {id: id, name: name, quantity: quantity };
     console.log(body);
-    try {
+    // try{
+    //     let response = await fetch("")
+    // }
+    // catch{
+    //
+    // }
+    try{
         let response = await fetch("/cart/add", {
-            method: "POST",
+            method: "PUT",
             headers: {
-                "Content-Type": "application/json"
+                'Content-Type': 'application/json',
             },
             body: JSON.stringify(body)
-        });
+        })
+        let json = await response.json();
+        console.log(json)
 
-        if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-        else{
-            console.log("Hello")
-            let cart = await response.json();
-            console.log(cart);
-        }
-
-        let text = await response.text();
-        console.log(text)
-
-    } catch (error) {
-        console.error('Fetch error:', error);
     }
+    catch{
+        console.log("Fetch error in put method")
+    }
+
 }
+
+function displayHotDeals(data) {
+    const hotDealsCarsContainer = document.getElementById("product-list-hot");
+    hotDealsCarsContainer.innerHTML = '';
+    data.forEach(car => {
+        console.log(car); // To check the whole object
+        console.log('Model:', car.model); // To check the value of model specifically
+        const dataElement = document.createElement('div');
+        dataElement.innerHTML = `<strong>${car.name}</strong> (${car.year}): $${car.price} mileage: ${car.mileage} Discount: ${car.discount}
+        <button onclick="addToCart('${car.id}', '${car.name}', 1)">Add to Cart</button>
+<button onclick="goToReviews()">Write Reviews</button>`;
+        hotDealsCarsContainer.appendChild(dataElement);
+    })
+}
+
+// async function changeQuantity(productId, change) {
+//     try {
+//         const response = await fetch("/cart/update", {
+//             method: "PUT",
+//             headers: {
+//                 'Content-Type': 'application/json',
+//             },
+//             body: JSON.stringify({ productId, change })
+//         });
+//
+//         const data = await response.json();
+//         if (data.cart) {
+//             updateCartDisplay(data.cart);
+//         } else {
+//             await shoppingCart();
+//         }
+//     } catch (error) {
+//         console.error('Error:', error);
+//     }
+// }
+
+// function increaseQuantity(productId) {
+//     changeQuantity(productId, 1); // Increase by 1
+// }
+//
+// function decreaseQuantity(productId) {
+//     changeQuantity(productId, -1); // Decrease by 1
+// }
 

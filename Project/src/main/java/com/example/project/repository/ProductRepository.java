@@ -15,5 +15,12 @@ public interface ProductRepository extends MongoRepository<Product, String> {
     @Query(value="{brand:'?0'}", fields="{'name' : 1, 'description' : 1, 'price': 1, 'model': 1}")
     List<Product> findAll(String brand);
 
+    @Query("{ 'discount' : { $gt : 0 } }")
+    List<Product> findDiscountedProducts();
+
+    @Query("{ 'discount' : 0 }")
+    List<Product> findFullPriceProducts();
+
+
 
 }

@@ -57,4 +57,8 @@ public class UserService {
         return userRepository.save(user);
     }
 
+    public User getCurrentUser(String userId){
+        return null;
+    }
+
 }

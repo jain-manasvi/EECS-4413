@@ -46,6 +46,7 @@ public class UserController {
 //        System.out.println(session.getAttribute("userId"));
         return new ResponseEntity<>(user, HttpStatus.BAD_REQUEST);
     }
+
 //    public ResponseEntity<User> getCurrentUser(){
 //        User user = userService.
 //    }

@@ -24,8 +24,9 @@ public class Product {
     private List<Review> reviews;
     private int mileage;
     private int quantity;
+    private int discount;
 
-    public Product(String name, String description, double price, String brand, String model, int year, int mileage, int quantity) {
+    public Product(String name, String description, double price, String brand, String model, int year, int mileage, int quantity, int discount) {
         this.name = name;
         this.description = description;
         this.price = price;
@@ -35,6 +36,7 @@ public class Product {
         this.year = year;
         this.mileage = mileage;
         this.quantity = quantity;
+        this.discount = discount;
     }
 
     public String getId() {
@@ -113,5 +115,11 @@ public class Product {
         this.quantity = quantity;
     }
 
+    public int getDiscount() {
+        return discount;
+    }
 
+    public void setDiscount(int discount) {
+        this.discount = discount;
+    }
 }

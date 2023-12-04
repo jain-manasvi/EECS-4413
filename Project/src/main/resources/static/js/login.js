@@ -1,3 +1,14 @@
+let isSignedIn = false;
+let count = 0;
+function openTab(tabName) {
+    var i;
+    var x = document.getElementsByClassName("tab");
+    for (i = 0; i < x.length; i++) {
+        x[i].style.display = "none";
+    }
+    document.getElementById(tabName).style.display = "block";
+}
+
 function submit(){
     let uname = document.getElementsByName("uname")[0].value;
     let psw = document.getElementsByName("psw")[0].value;
@@ -14,9 +25,11 @@ function submit(){
                 // alert("Incorrect credentials. Please try again")
                 throw new Error('Network response was wrong.');
             }
-            else{
-                alert("User logged in successfully")
+            if(response.ok){
+                isSignedIn = true
             }
+
+            validateUserSignIn(count)
 
             return response.json();
         })
@@ -27,4 +40,18 @@ function submit(){
             alert("Incorrect credentials. Please try again")
             console.error('There has been a problem with your fetch operation:', error);
         });
+}
+
+function validateUserSignIn(count){
+    if(count > 0){
+        alert("User already signed in")
+        window.location.href = "../index.html"
+    }
+    else{
+        count = 1
+        window.location.href = "../index.html"
+    }
+
+
+
 }

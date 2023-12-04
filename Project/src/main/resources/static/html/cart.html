@@ -3,24 +3,47 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="../css/main.css">
+    <title>Cart</title>
+    <script src="../js/cart.js"></script>
 </head>
+<div class="topnav">
+    <a href="../index.html" onclick="openTab('home'); return false;">Home</a>
+    <a href="./calculator.html">Loan Calculator</a>
+    <a href="./customization.html">Customization</a>
+    <a href="./signUp.html">Sign Up</a>
+    <a href="./logIn.html">Log In</a>
+    <a href="./cart.html">Cart</a>
+    <a href="../index.html" >Sign Out</a>
+</div>
+<!-- Start of LiveChat (www.livechat.com) code -->
+<script>
+    window.__lc = window.__lc || {};
+    window.__lc.license = 16770837;
+    ;(function(n,t,c){function i(n){return e._h?e._h.apply(null,n):e._q.push(n)}var e={_q:[],_h:null,_v:"2.0",on:function(){i(["on",c.call(arguments)])},once:function(){i(["once",c.call(arguments)])},off:function(){i(["off",c.call(arguments)])},get:function(){if(!e._h)throw new Error("[LiveChatWidget] You can't use getters before load.");return i(["get",c.call(arguments)])},call:function(){i(["call",c.call(arguments)])},init:function(){var n=t.createElement("script");n.async=!0,n.type="text/javascript",n.src="https://cdn.livechatinc.com/tracking.js",t.head.appendChild(n)}};!n.__lc.asyncInit&&e.init(),n.LiveChatWidget=n.LiveChatWidget||e}(window,document,[].slice))
+</script>
+<noscript><a href="https://www.livechat.com/chat-with/16770837/" rel="nofollow">Chat with us</a>, powered by <a href="https://www.livechat.com/?welcome" rel="noopener nofollow" target="_blank">LiveChat</a></noscript>
+<!-- End of LiveChat code -->
 <body id="htmlcart">
 <form name="ShoppingList">
     <fieldset>
         <legend>Shopping cart</legend>
-        <label>Item: <input type="text" name="name"></label>
-        <label>Quantity: <input type="text" name="data"></label>
-        <div id="btns">
-            <button type="button"  onclick="SaveItem()">Go To Check Out</button>
-            <button class="incdec" type="button"  onclick="inc()">+</button>
-            <button class="incdec" type="button"  onclick="dec()">-</button>
-            <button type="button"  href="#customization" onclick="window.location.href = 'customization.html';">Customize</button>
+        <div id="items-table">
         </div>
+
+<!--        <label>Item: <input type="text" name="name"></label>-->
+<!--        <label>Quantity: <input type="text" name="data"></label>-->
+<!--        <div id="btns">-->
+<!--            -->
+<!--            <button class="incdec" type="button"  onclick="inc()">+</button>-->
+<!--            <button class="incdec" type="button"  onclick="dec()">-</button>-->
+<!--            <button type="button"  href="#customization" onclick="window.location.href = 'customization.html';">Customize</button>-->
+<!--        </div>-->
+        <button type="button"  onclick="goToCheckout()">Go To Check Out</button>
     </fieldset>
-    <div id="items_table">
-        <label><button type="button" value="Clear" onclick="ClearAll()">Clear</button>
-        </label>
+    <div id="clearCart">
+<!--        <label><button type="button" value="Clear" onclick="clearAll()">Clear</button>-->
+<!--        </label>-->
     </div>
 </form>
-<script src="../js/cart.js"></script>
 </body>
+</html>
