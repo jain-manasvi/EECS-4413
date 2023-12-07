@@ -35,4 +35,9 @@ public class ProductController {
 
 
 
+    @GetMapping("/{productId}")
+    public ResponseEntity<Product> showProductDetails(@PathVariable String productId){
+        Product product = productService.findItemById(productId);
+        return ResponseEntity.ok(product);
+    }
 }

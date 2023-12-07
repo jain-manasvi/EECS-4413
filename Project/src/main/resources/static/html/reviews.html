@@ -4,14 +4,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://use.fontawesome.com/a6f0361695.js"></script>
     <link rel="stylesheet" type="text/css" href="../css/main.css">
+    <script src="../js/reviews.js"></script>
 </head>
+ Start of LiveChat (www.livechat.com) code
+<script>
+    window.__lc = window.__lc || {};
+    window.__lc.license = 16770837;
+    ;(function(n,t,c){function i(n){return e._h?e._h.apply(null,n):e._q.push(n)}var e={_q:[],_h:null,_v:"2.0",on:function(){i(["on",c.call(arguments)])},once:function(){i(["once",c.call(arguments)])},off:function(){i(["off",c.call(arguments)])},get:function(){if(!e._h)throw new Error("[LiveChatWidget] You can't use getters before load.");return i(["get",c.call(arguments)])},call:function(){i(["call",c.call(arguments)])},init:function(){var n=t.createElement("script");n.async=!0,n.type="text/javascript",n.src="https://cdn.livechatinc.com/tracking.js",t.head.appendChild(n)}};!n.__lc.asyncInit&&e.init(),n.LiveChatWidget=n.LiveChatWidget||e}(window,document,[].slice))
+</script>
+<noscript><a href="https://www.livechat.com/chat-with/16770837/" rel="nofollow">Chat with us</a>, powered by <a href="https://www.livechat.com/?welcome" rel="noopener nofollow" target="_blank">LiveChat</a></noscript>
+<!-- End of LiveChat code -->
+
+<div class="topnav">
+    <a href="../index.html" onclick="openTab('home'); return false;">Home</a>
+    <a href="./calculator.html">Loan Calculator</a>
+    <a href="./customization.html">Customization</a>
+    <a href="./signUp.html">Sign Up</a>
+    <a href="./logIn.html">Log In</a>
+    <a href="./cart.html">Cart</a>
+    <a href="../index.html" >Sign Out</a>
+</div>
+
 <body>
 
 <h2 id="fh2">WE APPRECIATE YOUR REVIEW!</h2>
 <h6 id="fh6">Your review will help us to improve our web hosting quality products, and customer services.</h6>
 
 
-<form id="feedback" action="">
+<form id="feedback">
     <div class="pinfo">Your personal info</div>
 
     <div class="form-group">
@@ -49,11 +69,11 @@
             <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-heart"></i></span>
                 <select class="form-control" id="rate">
-                    <option value="1star">1</option>
-                    <option value="2stars">2</option>
-                    <option value="3stars">3</option>
-                    <option value="4stars">4</option>
-                    <option value="5stars">5</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
                 </select>
             </div>
         </div>
@@ -72,7 +92,7 @@
         </div>
     </div>
 
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="button" onclick="submitForm()" class="btn btn-primary">Submit</button>
 
 
 </form>

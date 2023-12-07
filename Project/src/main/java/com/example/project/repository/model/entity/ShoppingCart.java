@@ -16,13 +16,13 @@ import java.util.UUID;
 //        return cartTotal;
 //    }
 
-@Document
 public class ShoppingCart {
 
     @Id
     private String id;
     private String userId;
 //    @DocumentReference
+    //Cart item has the individual items in the cart
     private List<CartItem> cart;
 
     public ShoppingCart(String userId) {
@@ -36,7 +36,8 @@ public class ShoppingCart {
     }
 
     public void removeCartItem(String productId){
-        cart.removeIf(item -> item.getId() == productId);
+        System.out.println("Remove cart item: " + productId);
+        cart.removeIf(item -> item.getProductId().equals(productId));
     }
 
     public void clearCart(){
@@ -65,6 +66,20 @@ public class ShoppingCart {
         
         CartItem item = new CartItem(productName, productId, qty);
         this.cart.add(item);
+    }
+
+    public void updateItemQuantity(String productId, int change){
+        for (CartItem item : cart){
+            if(item.getProductId().equals(productId)){
+                int newQty = item.getQty() + change;
+                if(newQty > 0) {
+                    item.setQty(newQty);
+                } else {
+                    cart.remove(item);
+                }
+                break;
+            }
+        }
     }
 
     public String getUserId() {

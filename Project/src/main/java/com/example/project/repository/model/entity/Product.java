@@ -82,11 +82,11 @@ public class Product {
     }
 
     public List<Review> getReviews() {
-        return reviews;
+        return this.reviews;
     }
 
     public void setNewReview(Review review) {
-        reviews.add(review);
+        this.reviews.add(review);
     }
 
     public int getYear() {
