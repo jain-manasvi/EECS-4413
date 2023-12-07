@@ -17,6 +17,10 @@ public class ProductService implements CommandLineRunner {
         this.productRepository = productRepository;
     }
 
+    public Product findItemById(String productId){
+        return productRepository.findItemById(productId);
+    }
+
     public List<Product> findAllProducts() {
         return productRepository.findAll();
     }

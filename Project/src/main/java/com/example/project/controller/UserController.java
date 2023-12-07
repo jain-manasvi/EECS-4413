@@ -1,4 +1,5 @@
 package com.example.project.controller;
+import com.example.project.ProjectApplication;
 import com.example.project.repository.model.entity.ShoppingCart;
 import com.example.project.repository.model.entity.User;
 import com.example.project.service.ShoppingCartService;
@@ -33,19 +34,24 @@ public class UserController {
         User user = userService.loginUser(userReq.getEmail());
         if(!user.getEmail().equals("baduser@gmail.com")){
             if(user.getPassword().equals(userReq.getPassword())){
+                ProjectApplication.isSignedIn = true;
                 ShoppingCart cart = this.cartService.getCartByUserId(user.getId());
+                System.out.println(cart.toString());
                 session.setAttribute("cart", cart);
                 session.setAttribute("fName", user.getfName());
                 session.setAttribute("lName", user.getlName());
                 session.setAttribute("email", user.getEmail());
                 session.setAttribute("userId", user.getId());
+                session.setAttribute("isSignedIn", true);
                 return new ResponseEntity<>(user, HttpStatus.OK);
             }
+
         }
 
-//        System.out.println(session.getAttribute("userId"));
         return new ResponseEntity<>(user, HttpStatus.BAD_REQUEST);
     }
+
+
 //    public ResponseEntity<User> getCurrentUser(){
 //        User user = userService.
 //    }

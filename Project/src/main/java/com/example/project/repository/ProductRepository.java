@@ -9,7 +9,7 @@ import java.util.List;
 
 public interface ProductRepository extends MongoRepository<Product, String> {
     @Query("{id:'?0'}")
-    Payment findItemById(String id);
+    Product findItemById(String id);
 
     public long count();
     @Query(value="{brand:'?0'}", fields="{'name' : 1, 'description' : 1, 'price': 1, 'model': 1}")

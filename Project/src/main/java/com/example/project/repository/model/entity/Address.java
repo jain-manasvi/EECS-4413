@@ -9,7 +9,6 @@ public class Address {
     private String city;
     private String state;
     private String zipCode;
-    // Other address-related fields, getters, setters, etc.
 
     public Address(String street, String city, String state, String zipCode) {
         this.street = street;
